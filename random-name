@@ -11,7 +11,7 @@ usage:  random-name --component=<list>... [--separator=<string>] [<count>]
 
 examples:
 
-    random-name generate --component=examples/nouns/fun --component=examples/nouns/animals 30
+    random-name generate --component=path/to/namelist --component=path/to/namelist2 30
     random-name generate --component=first* --component=middle* 30
 
 '''
