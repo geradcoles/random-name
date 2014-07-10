@@ -26,7 +26,7 @@ Generate 100 random mixed-gender names:
     ./random-name \
         --component=sample_lists/names_* \
         --component=sample_lists/surnames_american \
-        100
+        --separator=' ' 100
 
 Generate a random machine hostname (fun)
 
