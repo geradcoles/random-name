@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 
-usage:  random-name generate --component=<list>... [--separator=<string>] [<count>]
+usage:  random-name --component=<list>... [--separator=<string>] [<count>]
         random-name help
 
   <count>               how many names to generate [default: 1]
@@ -22,9 +22,9 @@ from subprocess import call
 args = docopt(__doc__, version="random-name 0.1", help=True)
 if args['help']:
     exit(call(['python','random-name','--help']))
-elif args['generate']:
+else:
     if not args['<count>']:
-        args['--count'] = 1
+        args['<count>'] = 1
 
     wordlists = []
     for i in range(len(args['--component'])):
