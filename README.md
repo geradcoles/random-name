@@ -13,19 +13,26 @@ several sample data files, which may be used for various purposes.
 
 ## Examples
 
-Generate twenty random american women's full names
+Generate twenty random american women's full names:
 
     ./random-name \
-      --component=sample_lists/female_names \
-      --component=sample_lists/female_names \
-      --component=sample_lists/surnames_american \
-      --separator=' ' 20
+        --component=sample_lists/names_female \
+        --component=sample_lists/names_female \
+        --component=sample_lists/surnames_american \
+        --separator=' ' 20
+
+Generate 100 random mixed-gender names:
+
+    ./random-name \
+        --component=sample_lists/names_* \
+        --component=sample_lists/surnames_american \
+        100
 
 Generate a random machine hostname (fun)
 
     ./random-name \
-      --component=sample_lists/personalities \
-      --component=sample_lists/animals
+        --component=sample_lists/personalities \
+        --component=sample_lists/animals
 
 ## Installation
 
