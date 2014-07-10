@@ -39,7 +39,7 @@ Generate a random machine hostname (fun)
 This script loads all the names in the specified name lists into memory, so really
 large name lists will result in a lot of memory usage.
 
-The method used to get random names from the lists is inneficient, as this tool
+The method used to get random names from the lists is inefficient, as this tool
 was never intended to be used for large amounts (millions) of names. If you really
 need this functionality, consider forking this code and updating it, then issue me
 a pull request.
