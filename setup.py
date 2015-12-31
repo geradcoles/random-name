@@ -8,11 +8,11 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='randomname',
-      version='0.1.0',
+      version='0.1.1',
       description='Random Name Generator',
       author='Gerad Coles',
       author_email='geradacoles@gmail.com',
-      packages=['randomname'],
+      packages=['randomname', 'randomname.lists'],
       scripts=["bin/random-name"],
       install_requires = [
             'docopt>=0.6',
