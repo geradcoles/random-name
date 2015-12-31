@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+'''
+
+usage:  random-name generate --list=<list>... [--sep=<string>] [--lc] [<count>]
+        random-name hostname [--wordcount=N] [<count>]
+        random-name help
+
+  <count>               how many names to generate [default: 1]
+  -l, --list=<list>     a comma-separated list of word list names. Multiple list
+                        entries are allowed. Each --list argument causes another
+                        word to be generated as part of the name
+  -s, --sep=<string>    a string of text to place between name components [default: -]
+  --lc                  enforce lower-case (names have standard capitalization by default)
+  --wordcount=N         number of words to use in hostname [default: 2]
+
+If called with the 'hostname' directive, random-name generates a random name
+suitable for use as a hostname.
+
+examples:
+
+    # Generate 30 random names with two words in each
+    random-name generate --list=adjectives --list=animals,names_female 30
+
+    # Generate 20 random American-sounding names:
+    random-name generate --list=names_male,names_female --list=surnames_american 20
+
+'''
+from docopt import docopt
+from subprocess import call
+import sys
+import randomname
+
+args = docopt(__doc__, version="random-name 0.1", help=True)
+if args['help']:
+    exit(call(['python','random-name','--help']))
+count = 1
+if args['<count>']:
+    assert int(args['<count>']) > 0, "--wordcount must be a positive integer"
+    count = int(args['<count>'])
+
+if args['hostname']:
+    for _ in range(count):
+        print(randomname.generate_hostname(wordcount=int(args['--wordcount'])))
+else:
+    wordlists = []
+    for component in args['--list']:
+        wl = randomname.WordList()
+        for wordlist in component.split(','):
+            wl.add_wordlist(wordlist)
+        wordlists.append(wl)
+
+    for _ in range(count):
+        random_name = []
+        for wordlist in wordlists:
+            random_name.append(wordlist.random_word())
+        name = args['--sep'].join(random_name)
+        if args['--lc']:
+            print(name.lower())
+        else:
+            print(name)
+sys.exit(0)

@@ -1,0 +1,4 @@
+WORDS = (
+	'dead',
+	'living',
+)

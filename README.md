@@ -15,7 +15,7 @@ several sample data files, which may be used for various purposes.
 
 Generate twenty random american women's full names:
 
-    ./random-name \
+    random-name \
         --component=sample_lists/names_female \
         --component=sample_lists/names_female \
         --component=sample_lists/surnames_american \
@@ -23,23 +23,20 @@ Generate twenty random american women's full names:
 
 Generate 100 random mixed-gender names:
 
-    ./random-name \
+    random-name \
         --component=sample_lists/names_* \
         --component=sample_lists/surnames_american \
         --separator=' ' 100
 
 Generate a random machine hostname (fun)
 
-    ./random-name \
+    random-name \
         --component=sample_lists/personalities \
         --component=sample_lists/animals
 
 ## Installation
 
-    pip install docopt
-    git clone https://github.com/geradcoles/random-name.git
-    cd random-name
-    # run commands from here, or copy random-name to your system's /bin dir
+    pip install randomname
 
 ## Performance
 
@@ -50,4 +47,3 @@ The method used to get random names from the lists is inefficient, as this tool
 was never intended to be used for large amounts (millions) of names. If you really
 need this functionality, consider forking this code and updating it, then issue me
 a pull request.
-
